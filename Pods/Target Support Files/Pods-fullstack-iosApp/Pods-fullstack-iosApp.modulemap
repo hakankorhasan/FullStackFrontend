@@ -1,0 +1,6 @@
+framework module Pods_fullstack_iosApp {
+  umbrella header "Pods-fullstack-iosApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
