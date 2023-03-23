@@ -10,6 +10,7 @@ import WebKit
 import Alamofire
 import SDWebImage
 import JGProgressHUD
+import CoreData
 
 extension ProfileController: PostDelegate {
     func userProfile(post: Post) {
@@ -83,9 +84,69 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
     
     let userId: String
     var user: User?
+    
     init(userId: String) {
         self.userId = userId
         super.init()
+    }
+    
+    @objc fileprivate func handleSetting() {
+        let alertController = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+        
+        let alertController2 = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .alert)
+        
+        let alertController3 = UIAlertController(title: "Are you sure you want to delete your user account? This action cannot be undone and all of your account data will be lost. Click 'Ok' to proceed, or click the 'Cancel' button to cancel the operation.", message: nil, preferredStyle: .alert)
+        
+        let url = "\(Service.shared.baseUrl)/api/v1/account/logout"
+        
+        let deleterUserUrl = "\(Service.shared.baseUrl)/destroy"
+        
+        alertController.addAction(.init(title: "Log out", style: .destructive, handler: { (_) in
+            
+            AF.request(url)
+                .validate(statusCode: 200..<300)
+                .responseData { (dataResp) in
+                    if let error = dataResp.error {
+                        print("error logout", error)
+                        return
+                    } else {
+                        let navController = UINavigationController(rootViewController: LoginController())
+                        navController.modalPresentationStyle = .fullScreen
+                        NSManagedObject().setIsLogged(false)
+                        self.present(navController, animated: true)
+                    }
+                }
+           
+            self.present(alertController, animated: true)
+            
+        }))
+        
+        alertController.addAction(.init(title: "Delete this account", style: .destructive, handler: { (_) in
+            
+            alertController3.addAction(.init(title: "Ok", style: .destructive, handler: { (_) in
+                AF.request(deleterUserUrl, method: .delete)
+                    .validate(statusCode: 200..<300)
+                    .response { response in
+                        switch response.result {
+                        case .success:
+                            let navController = UINavigationController(rootViewController: LoginController())
+                            navController.modalPresentationStyle = .fullScreen
+                            self.present(navController, animated: true)
+                        case .failure(let err):
+                            print("error delete account:", err)
+                        }
+                    }
+            }))
+            
+            alertController3.addAction(.init(title: "Cancel", style: .cancel))
+            self.present(alertController3, animated: true)
+            self.present(alertController, animated: true)
+          
+        }))
+        
+        
+        alertController.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true)
     }
     
     func goToEdit() {
@@ -150,12 +211,6 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
         let rc = UIRefreshControl()
         rc.addTarget(self, action: #selector(fetchUserProfile), for: .valueChanged)
         self.collectionView.refreshControl = rc
-    }
-    
-    @objc fileprivate func handleSetting() {
-        let navController = SettingsController()
-        navController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(navController, animated: true)
     }
     
    

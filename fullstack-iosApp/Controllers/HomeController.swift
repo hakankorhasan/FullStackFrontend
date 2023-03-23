@@ -11,6 +11,7 @@ import Alamofire
 import SDWebImage
 import JGProgressHUD
 import CoreData
+import SwiftUI
 
 extension HomeController: PostDelegate {
     func userProfile(post: Post) {
@@ -99,25 +100,22 @@ class HomeController: LBTAListController<UserPostCell, Post>, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .init(white: 0.95, alpha: 1)
+        
         fetchPosts()
         fetchUserName()
         
-        navigationItem.rightBarButtonItem =
-            .init(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(handleSearch))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(#colorLiteral(red: 0.1132736728, green: 0.2542929053, blue: 0.2525310516, alpha: 1))
+        navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "heart"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem?.tintColor = .black
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Social Media", style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-MediumItalic", size: 20)!], for: .normal)
         
-        navigationItem.leftBarButtonItem =
-            .init(image: UIImage(systemName: "figure.walk.arrival"), style: .plain, target: self, action: #selector(handleLogout))
-        navigationItem.leftBarButtonItem?.tintColor = UIColor(#colorLiteral(red: 0.1132736728, green: 0.2542929053, blue: 0.2525310516, alpha: 1))
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-MediumItalic", size: 18)!]
         
         let rc = UIRefreshControl()
         rc.addTarget(self, action: #selector(fetchPosts), for: .valueChanged)
         self.collectionView.refreshControl = rc
         
-       
     }
     
     @objc func fetchUserName() {
@@ -139,18 +137,13 @@ class HomeController: LBTAListController<UserPostCell, Post>, UIImagePickerContr
                 do {
                     let user = try JSONDecoder().decode(User.self, from: data)
                     self.user = user
-                    self.navigationItem.title = user.fullName
+                    
                 }catch(let err){
                     print("decoding error", err)
                 }
             }
     }
     
-    @objc fileprivate func handleSearch() {
-        let searchController = UserSearchController()
-        searchController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(searchController, animated: true)
-    }
     
     @objc fileprivate func createPost(){
         let imagePicker = UIImagePickerController()
@@ -177,33 +170,7 @@ class HomeController: LBTAListController<UserPostCell, Post>, UIImagePickerContr
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }
-    
-    
-    @objc fileprivate func handleLogout(){
-       
-        let alertController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .actionSheet)
-        
-        let url = "\(Service.shared.baseUrl)/api/v1/account/logout"
-        alertController.addAction(.init(title: "Exit", style: .destructive, handler: { (_) in
-            AF.request(url)
-                .validate(statusCode: 200..<300)
-                .responseData { (dataResp) in
-                    if let error = dataResp.error {
-                        print("error ",error)
-                        return
-                    } else {
-                        let navController = UINavigationController(rootViewController: LoginController())
-                        navController.modalPresentationStyle = .fullScreen
-                        NSManagedObject().setIsLogged(false)
-                        self.present(navController, animated: true)
-                        
-                    }
-                }
-        }))
-        
-        alertController.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alertController, animated: true)
-    }
+
     
     @objc func fetchPosts() {
         

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import CoreData
 
 
@@ -24,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        // let contentView = TabBarController()
+
         guard let windowScene = (scene as? UIWindowScene) else { return }
        // window?.rootViewController = MainTabBarController()
            let window = UIWindow(windowScene: windowScene)
@@ -36,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     print(objectData.isLogged)
                     let mainTabBarController = MainTabBarController()
                     window.rootViewController = mainTabBarController
+                    //window.rootViewController = contentView
                 } else {
                     // Eğer isLogged false ise LoginController'a yönlendir
                     let loginController = LoginController()

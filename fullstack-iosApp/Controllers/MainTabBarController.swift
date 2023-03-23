@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+import LBTATools
 
 extension MainTabBarController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -34,7 +36,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate  {
     
      func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
-        if viewControllers?.firstIndex(of: viewController) == 1 {
+        if viewControllers?.firstIndex(of: viewController) == 2 {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             present(imagePicker, animated: true)
@@ -55,7 +57,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate  {
     let profileController = ProfileController(userId: "")
     let messageController = MessagesListController(userId: "")//MessageController(userId: "")
     let searchController = UserSearchController()
-    let viewController = ViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,16 +67,14 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate  {
         viewControllers = [
             createNavController(viewController: homeController
                                 , tabBarImage: UIImage(systemName: "house")),
-           // createNavController(viewController: searchController, tabBarImage: UIImage(systemName: "magnifyingglass")),
+            createNavController(viewController: searchController, tabBarImage: UIImage(systemName: "magnifyingglass")),
             createNavController(viewController: vc, tabBarImage: UIImage(systemName: "plus.app")),
-            //createNavController(viewController: viewController, tabBarImage: UIImage(systemName: "bolt.horizontal.circle")),
             createNavController(viewController: profileController, tabBarImage: UIImage(systemName: "person"))
         ]
         
         tabBar.tintColor = .black
        
     }
-    
     
     
     fileprivate func createNavController(viewController: UIViewController, tabBarImage: UIImage?) -> UIViewController {
