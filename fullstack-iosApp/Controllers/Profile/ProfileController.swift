@@ -103,20 +103,24 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
         
         alertController.addAction(.init(title: "Log out", style: .destructive, handler: { (_) in
             
-            AF.request(url)
-                .validate(statusCode: 200..<300)
-                .responseData { (dataResp) in
-                    if let error = dataResp.error {
-                        print("error logout", error)
-                        return
-                    } else {
-                        let navController = UINavigationController(rootViewController: LoginController())
-                        navController.modalPresentationStyle = .fullScreen
-                        NSManagedObject().setIsLogged(false)
-                        self.present(navController, animated: true)
+            alertController2.addAction(.init(title: "Ok", style: .destructive, handler: { (_) in
+                AF.request(url)
+                    .validate(statusCode: 200..<300)
+                    .responseData { (dataResp) in
+                        if let error = dataResp.error {
+                            print("error logout", error)
+                            return
+                        } else {
+                            let navController = UINavigationController(rootViewController: LoginController())
+                            navController.modalPresentationStyle = .fullScreen
+                            NSManagedObject().setIsLogged(false)
+                            self.present(navController, animated: true)
+                        }
                     }
-                }
-           
+            }))
+            
+            alertController2.addAction(.init(title: "Cancel", style: .cancel))
+            self.present(alertController2, animated: true)
             self.present(alertController, animated: true)
             
         }))
@@ -150,20 +154,25 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
     }
     
     func goToEdit() {
-        print(self.user)
+
         guard let user = self.user else { return }
+        
         if let userId = self.user?.id {
+            
             let navController = EditProfileController(userId: userId, user: user)
             navController.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(navController, animated: true)
+            
         } else {
             print("Kullanıcı bilgilerine erişilemiyor.")
         }
     }
     
     func handleFollowUnfollow() {
+        
         guard let user = user else { return }
         let isFollowing = user.isFollowing == true
+        
         let url = "\(Service.shared.baseUrl)/\(isFollowing ? "unfollow" : "follow")/\(user.id)"
         
         AF.request(url, method: .post)

@@ -18,14 +18,9 @@
 		7F623880297E9C8100F85216 /* CreatePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F62387F297E9C8100F85216 /* CreatePostController.swift */; };
 		7F62BBF729B934AA00D07C1C /* LoginControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F62BBF529B934AA00D07C1C /* LoginControl.xcdatamodeld */; };
 		7F62BC1D29B9CC4000D07C1C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7F62BC1C29B9CC4000D07C1C /* Lottie */; };
-		7F62BC2029B9CD0900D07C1C /* loginAnime.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC1F29B9CD0900D07C1C /* loginAnime.json */; };
-		7F62BC2229B9D08B00D07C1C /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC2129B9D08B00D07C1C /* login.json */; };
-		7F62BC2429B9D2C700D07C1C /* register.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC2329B9D2C700D07C1C /* register.json */; };
 		7F62BC2629B9D3B400D07C1C /* 121421-login.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC2529B9D3B400D07C1C /* 121421-login.json */; };
-		7F62BC2829BA1CE500D07C1C /* successfully.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC2729BA1CE500D07C1C /* successfully.json */; };
 		7F62BC2A29BA258200D07C1C /* 41647-successfully-completed.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC2929BA258200D07C1C /* 41647-successfully-completed.json */; };
 		7F64F05129CB37AF004F7E26 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64F05029CB37AF004F7E26 /* TabBarView.swift */; };
-		7F64F05329CB4328004F7E26 /* search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64F05229CB4328004F7E26 /* search.swift */; };
 		7F7BC75429B0D97400D03BDE /* CustomInputMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BC75329B0D97400D03BDE /* CustomInputMessageView.swift */; };
 		7F801596297E77D500936EDC /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801595297E77D500936EDC /* PostCell.swift */; };
 		7FB06AA929A28F85001CBC67 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06AA829A28F85001CBC67 /* PostDetailController.swift */; };
@@ -34,7 +29,6 @@
 		7FB06AAF29A38D59001CBC67 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06AAE29A38D59001CBC67 /* CustomInputAccessoryView.swift */; };
 		7FB06AB129A7C494001CBC67 /* LikesDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06AB029A7C494001CBC67 /* LikesDetailController.swift */; };
 		7FB06AB329A7C4EF001CBC67 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06AB229A7C4EF001CBC67 /* Like.swift */; };
-		7FB06AB629A8E724001CBC67 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06AB529A8E724001CBC67 /* NavBarController.swift */; };
 		7FB06AB929A90387001CBC67 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06AB829A90387001CBC67 /* Refresh.swift */; };
 		7FB06ABC29ABA474001CBC67 /* AddMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06ABB29ABA474001CBC67 /* AddMessageController.swift */; };
 		7FB06ABE29AF7F34001CBC67 /* MessageslListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06ABD29AF7F34001CBC67 /* MessageslListController.swift */; };
@@ -51,7 +45,6 @@
 		7FBBC303297ABA0A00A978F0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBC302297ABA0A00A978F0 /* Post.swift */; };
 		7FBBC305297ABB2000A978F0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBC304297ABB2000A978F0 /* Service.swift */; };
 		7FBD857429C625BD00997688 /* login2.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FBD857329C625BD00997688 /* login2.json */; };
-		7FE146EE29C0852000E6EFD6 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE146ED29C0852000E6EFD6 /* SettingsController.swift */; };
 		7FE146F029C2530100E6EFD6 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE146EF29C2530100E6EFD6 /* EditProfileController.swift */; };
 		7FE5819D29B4D0A700CCBA88 /* SocketIOManagerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5819C29B4D0A700CCBA88 /* SocketIOManagerDefault.swift */; };
 		7FE581A029B4E28B00CCBA88 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 7FE5819F29B4E28B00CCBA88 /* SocketIO */; };
@@ -76,14 +69,9 @@
 		7F219509298914AC00D25BAD /* ProfileController+ChangeAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileController+ChangeAvatar.swift"; sourceTree = "<group>"; };
 		7F62387F297E9C8100F85216 /* CreatePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostController.swift; sourceTree = "<group>"; };
 		7F62BBF629B934AA00D07C1C /* LoginControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoginControl.xcdatamodel; sourceTree = "<group>"; };
-		7F62BC1F29B9CD0900D07C1C /* loginAnime.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginAnime.json; sourceTree = "<group>"; };
-		7F62BC2129B9D08B00D07C1C /* login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
-		7F62BC2329B9D2C700D07C1C /* register.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = register.json; sourceTree = "<group>"; };
 		7F62BC2529B9D3B400D07C1C /* 121421-login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "121421-login.json"; sourceTree = "<group>"; };
-		7F62BC2729BA1CE500D07C1C /* successfully.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = successfully.json; sourceTree = "<group>"; };
 		7F62BC2929BA258200D07C1C /* 41647-successfully-completed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "41647-successfully-completed.json"; sourceTree = "<group>"; };
 		7F64F05029CB37AF004F7E26 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		7F64F05229CB4328004F7E26 /* search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search.swift; sourceTree = "<group>"; };
 		7F7BC75329B0D97400D03BDE /* CustomInputMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputMessageView.swift; sourceTree = "<group>"; };
 		7F801595297E77D500936EDC /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		7FB06AA829A28F85001CBC67 /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -92,7 +80,6 @@
 		7FB06AAE29A38D59001CBC67 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		7FB06AB029A7C494001CBC67 /* LikesDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesDetailController.swift; sourceTree = "<group>"; };
 		7FB06AB229A7C4EF001CBC67 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
-		7FB06AB529A8E724001CBC67 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		7FB06AB829A90387001CBC67 /* Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
 		7FB06ABB29ABA474001CBC67 /* AddMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMessageController.swift; sourceTree = "<group>"; };
 		7FB06ABD29AF7F34001CBC67 /* MessageslListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageslListController.swift; sourceTree = "<group>"; };
@@ -111,7 +98,6 @@
 		7FBBC302297ABA0A00A978F0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7FBBC304297ABB2000A978F0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		7FBD857329C625BD00997688 /* login2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login2.json; sourceTree = "<group>"; };
-		7FE146ED29C0852000E6EFD6 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		7FE146EF29C2530100E6EFD6 /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
 		7FE5819C29B4D0A700CCBA88 /* SocketIOManagerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManagerDefault.swift; sourceTree = "<group>"; };
 		7FE581A129B5D32F00CCBA88 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
@@ -175,14 +161,38 @@
 			isa = PBXGroup;
 			children = (
 				7F62BC2929BA258200D07C1C /* 41647-successfully-completed.json */,
-				7F62BC2729BA1CE500D07C1C /* successfully.json */,
 				7F62BC2529B9D3B400D07C1C /* 121421-login.json */,
 				7FBD857329C625BD00997688 /* login2.json */,
-				7F62BC2329B9D2C700D07C1C /* register.json */,
-				7F62BC2129B9D08B00D07C1C /* login.json */,
-				7F62BC1F29B9CD0900D07C1C /* loginAnime.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		7F64F05429CCA251004F7E26 /* PostViews */ = {
+			isa = PBXGroup;
+			children = (
+				7FB06AAE29A38D59001CBC67 /* CustomInputAccessoryView.swift */,
+				7FB06AAC29A385DA001CBC67 /* CommentCell.swift */,
+				7F2195002986A10000D25BAD /* UserPostCell.swift */,
+				7F801595297E77D500936EDC /* PostCell.swift */,
+			);
+			path = PostViews;
+			sourceTree = "<group>";
+		};
+		7F64F05529CCA290004F7E26 /* SearchViews */ = {
+			isa = PBXGroup;
+			children = (
+				7F2194FC29865F2E00D25BAD /* UserSearchCell.swift */,
+			);
+			path = SearchViews;
+			sourceTree = "<group>";
+		};
+		7F64F05729CCA2C1004F7E26 /* MessageViews */ = {
+			isa = PBXGroup;
+			children = (
+				7F7BC75329B0D97400D03BDE /* CustomInputMessageView.swift */,
+				7FE581A729B88DCA00CCBA88 /* MessageCelll.swift */,
+			);
+			path = MessageViews;
 			sourceTree = "<group>";
 		};
 		7FB06AA729A28F67001CBC67 /* PostDetails */ = {
@@ -192,14 +202,6 @@
 				7FB06AB029A7C494001CBC67 /* LikesDetailController.swift */,
 			);
 			path = PostDetails;
-			sourceTree = "<group>";
-		};
-		7FB06AB429A8E6CA001CBC67 /* NavBar */ = {
-			isa = PBXGroup;
-			children = (
-				7FB06AB529A8E724001CBC67 /* NavBarController.swift */,
-			);
-			path = NavBar;
 			sourceTree = "<group>";
 		};
 		7FB06AB729A9036E001CBC67 /* Extensions */ = {
@@ -284,14 +286,10 @@
 		7FBBC2F92979290600A978F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F801595297E77D500936EDC /* PostCell.swift */,
-				7F2194FC29865F2E00D25BAD /* UserSearchCell.swift */,
-				7F2195002986A10000D25BAD /* UserPostCell.swift */,
+				7F64F05729CCA2C1004F7E26 /* MessageViews */,
+				7F64F05529CCA290004F7E26 /* SearchViews */,
+				7F64F05429CCA251004F7E26 /* PostViews */,
 				7F2195052987A4B600D25BAD /* ProfileHeader.swift */,
-				7FB06AAC29A385DA001CBC67 /* CommentCell.swift */,
-				7FB06AAE29A38D59001CBC67 /* CustomInputAccessoryView.swift */,
-				7F7BC75329B0D97400D03BDE /* CustomInputMessageView.swift */,
-				7FE581A729B88DCA00CCBA88 /* MessageCelll.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,9 +297,7 @@
 		7FBBC2FB2979291800A978F0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7FE146EC29C0850400E6EFD6 /* ProfileSettings */,
 				7FB06ABA29ABA466001CBC67 /* Message */,
-				7FB06AB429A8E6CA001CBC67 /* NavBar */,
 				7FB06AA729A28F67001CBC67 /* PostDetails */,
 				7F2195042987A39100D25BAD /* Profile */,
 				7F2194F929865E5600D25BAD /* Search */,
@@ -311,17 +307,8 @@
 				7F62387F297E9C8100F85216 /* CreatePostController.swift */,
 				7F2195072988FC0A00D25BAD /* MainTabBarController.swift */,
 				7F64F05029CB37AF004F7E26 /* TabBarView.swift */,
-				7F64F05229CB4328004F7E26 /* search.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		7FE146EC29C0850400E6EFD6 /* ProfileSettings */ = {
-			isa = PBXGroup;
-			children = (
-				7FE146ED29C0852000E6EFD6 /* SettingsController.swift */,
-			);
-			path = ProfileSettings;
 			sourceTree = "<group>";
 		};
 		7FE5819B29B4D08B00CCBA88 /* Manager */ = {
@@ -405,12 +392,8 @@
 				7FBBC2F0297928DF00A978F0 /* LaunchScreen.storyboard in Resources */,
 				7F62BC2A29BA258200D07C1C /* 41647-successfully-completed.json in Resources */,
 				7F62BC2629B9D3B400D07C1C /* 121421-login.json in Resources */,
-				7F62BC2829BA1CE500D07C1C /* successfully.json in Resources */,
 				7FBBC2ED297928DF00A978F0 /* Assets.xcassets in Resources */,
 				7FBD857429C625BD00997688 /* login2.json in Resources */,
-				7F62BC2229B9D08B00D07C1C /* login.json in Resources */,
-				7F62BC2429B9D2C700D07C1C /* register.json in Resources */,
-				7F62BC2029B9CD0900D07C1C /* loginAnime.json in Resources */,
 				7FBBC2EB297928DE00A978F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,7 +458,6 @@
 				7FE146F029C2530100E6EFD6 /* EditProfileController.swift in Sources */,
 				7FE581A429B5D5BB00CCBA88 /* Managers.swift in Sources */,
 				7FB06AB929A90387001CBC67 /* Refresh.swift in Sources */,
-				7FB06AB629A8E724001CBC67 /* NavBarController.swift in Sources */,
 				7F2195032986A50400D25BAD /* User.swift in Sources */,
 				7F623880297E9C8100F85216 /* CreatePostController.swift in Sources */,
 				7FE581A829B88DCA00CCBA88 /* MessageCelll.swift in Sources */,
@@ -483,7 +465,6 @@
 				7FB06ABC29ABA474001CBC67 /* AddMessageController.swift in Sources */,
 				7F2195062987A4B600D25BAD /* ProfileHeader.swift in Sources */,
 				7F64F05129CB37AF004F7E26 /* TabBarView.swift in Sources */,
-				7F64F05329CB4328004F7E26 /* search.swift in Sources */,
 				7FBBC301297996B900A978F0 /* RegisterController.swift in Sources */,
 				7F2195082988FC0A00D25BAD /* MainTabBarController.swift in Sources */,
 				7F2195012986A10000D25BAD /* UserPostCell.swift in Sources */,
@@ -501,7 +482,6 @@
 				7FB06AAB29A38595001CBC67 /* Comment.swift in Sources */,
 				7F7BC75429B0D97400D03BDE /* CustomInputMessageView.swift in Sources */,
 				7FB06ABE29AF7F34001CBC67 /* MessageslListController.swift in Sources */,
-				7FE146EE29C0852000E6EFD6 /* SettingsController.swift in Sources */,
 				7F801596297E77D500936EDC /* PostCell.swift in Sources */,
 				7FE5819D29B4D0A700CCBA88 /* SocketIOManagerDefault.swift in Sources */,
 				7F2194FF2986A09100D25BAD /* ProfileController.swift in Sources */,

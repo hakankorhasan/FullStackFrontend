@@ -7,17 +7,27 @@
 
 import LBTATools
 
-class UserSearchController: LBTAListController<UserSearchCell, User> {
+class UserSearchController: LBTAListController<UserSearchCell, User>, UISearchResultsUpdating {
     
     
+    let searchBarController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .init(white: 0.95, alpha: 1)
         navigationItem.title = "Search"
         modalPresentationStyle = .fullScreen
-        //service.shared. ile post isteği at searchforusers ı çağır
-        Service.shared.searchForUsers { (res) in
+        
+        searchBarController.searchResultsUpdater = self
+        navigationItem.searchController = searchBarController
+        
+        
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        let encodedName = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+        Service.shared.searchForUsers(fullName: encodedName) { (res) in
             switch res {
             case .failure(let err):
                 print("error", err)
@@ -26,7 +36,6 @@ class UserSearchController: LBTAListController<UserSearchCell, User> {
                 self.collectionView.reloadData()
             }
         }
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

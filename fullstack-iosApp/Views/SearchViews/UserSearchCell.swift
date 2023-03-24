@@ -9,6 +9,10 @@ import LBTATools
 import Alamofire
 import SDWebImage
 
+protocol SearchDelegate{
+    func goUser(user: User)
+}
+
 extension UserSearchController {
     
     func didFollow(user: User) {
@@ -39,6 +43,7 @@ class UserSearchCell: LBTAListCell<User> {
     
     
     // profil fotoğrafı eklenecek
+    
     let profileImageView = CircularImageView(width: 33, image: UIImage(systemName: "person"))
     
     let nameLabel = UILabel(text: "Full Name", font: .systemFont(ofSize: 16, weight: .regular), textColor: .black)
