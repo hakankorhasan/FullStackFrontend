@@ -14,6 +14,10 @@ import CoreData
 import SwiftUI
 
 extension HomeController: PostDelegate {
+    func userProf(user: User) {
+        
+    }
+    
     func userProfile(post: Post) {
         let currentUrl = post.user.id
         let userProfile = ProfileController(userId: currentUrl == user?.id ? "" : currentUrl)
@@ -99,17 +103,17 @@ class HomeController: LBTAListController<UserPostCell, Post>, UIImagePickerContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .init(white: 0.95, alpha: 1)
+        view.backgroundColor = .viewBackgroundColor
         
         fetchPosts()
         fetchUserName()
         
         navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "heart"), style: .plain, target: self, action: nil)
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem?.tintColor = .iconColor
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Social Media", style: .plain, target: self, action: nil)
-        navigationItem.leftBarButtonItem?.tintColor = .black
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-MediumItalic", size: 20)!], for: .normal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Blog Sphere", style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem?.tintColor = .labelsColor
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Copperplate-Bold", size: 25)!], for: .normal)
         
         
         let rc = UIRefreshControl()

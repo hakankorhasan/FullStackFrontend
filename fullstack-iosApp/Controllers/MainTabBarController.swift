@@ -56,7 +56,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate  {
     let homeController = HomeController(userId: "")
     let profileController = ProfileController(userId: "")
     let messageController = MessagesListController(userId: "")//MessageController(userId: "")
-    let searchController = UserSearchController()
+    let searchController = UserSearchController(userId: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,10 +72,57 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate  {
             createNavController(viewController: profileController, tabBarImage: UIImage(systemName: "person"))
         ]
         
-        tabBar.tintColor = .black
+        tabBar.tintColor = .labelsColor
+        tabBar.backgroundColor = .viewBackgroundColor
        
     }
     
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let index = tabBarController.viewControllers?.firstIndex(of: viewController) else { return }
+        
+        
+        if index == 0 {
+            if let homeNavController = viewController as? UINavigationController,
+               let homeTabBarItem = homeNavController.tabBarItem {
+                
+                let selectedImage = UIImage(systemName: "house.fill") // Seçili halinin görüntüsü
+                homeTabBarItem.selectedImage = selectedImage
+                
+                let homeTabBarButton = homeTabBarItem.value(forKey: "view") as? UIView
+                homeTabBarButton?.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
+                
+                UIView.animate(withDuration: 0.3,
+                               delay: 0,
+                               usingSpringWithDamping: 0.5,
+                               initialSpringVelocity: 1,
+                               options: [.curveEaseInOut],
+                               animations: {
+                    homeTabBarButton?.transform = CGAffineTransform.identity
+                })
+            }
+        } else if index == 3 {
+            if let homeNavController = viewController as? UINavigationController,
+               let homeTabBarItem = homeNavController.tabBarItem {
+                
+                let selectedImage = UIImage(systemName: "person.fill") // Seçili halinin görüntüsü
+                homeTabBarItem.selectedImage = selectedImage
+                
+                let homeTabBarButton = homeTabBarItem.value(forKey: "view") as? UIView
+                homeTabBarButton?.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
+                
+                UIView.animate(withDuration: 0.3,
+                               delay: 0,
+                               usingSpringWithDamping: 0.5,
+                               initialSpringVelocity: 1,
+                               options: [.curveEaseInOut],
+                               animations: {
+                    homeTabBarButton?.transform = CGAffineTransform.identity
+                })
+            }
+        }
+        
+        
+    }
     
     fileprivate func createNavController(viewController: UIViewController, tabBarImage: UIImage?) -> UIViewController {
         

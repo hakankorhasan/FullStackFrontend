@@ -13,12 +13,13 @@ import Alamofire
 class EditProfileController: LBTAFormController,  UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let profileImageView = CircularImageView(width: 125, image: UIImage(named: "personTrans"))
-    let changePhotoButton = UIButton(title: "Change profile photo", titleColor: .blue, font: .systemFont(ofSize: 15), backgroundColor: .white, target: self, action: #selector(handleChangePhoto))
-    //UILabel(text: "Change profil photo", font: .systemFont(ofSize: 15), textColor: .blue, textAlignment: .center)
     
-    let nameLabel = UILabel(text: "Username", font: .systemFont(ofSize: 12, weight: .light))
+    let changePhotoButton = UIButton(title: "Change profile photo", titleColor: UIColor(#colorLiteral(red: 0, green: 0.5148674846, blue: 0.8860286474, alpha: 1)), font: .systemFont(ofSize: 15), backgroundColor: .viewBackgroundColor, target: self, action: #selector(handleChangePhoto))
+    
+    
+    let nameLabel = UILabel(text: "Username", font: .systemFont(ofSize: 12, weight: .light), textColor: .labelsColor)
     let fullNameTextField = UITextField(placeholder: "Username")
-    let bioLabel = UILabel(text: "Bio", font: .systemFont(ofSize: 12, weight: .light))
+    let bioLabel = UILabel(text: "Bio", font: .systemFont(ofSize: 12, weight: .light), textColor: .labelsColor)
     let bioTextField = UITextField(placeholder: "Bio")
     
     let gestureRecognizer = UITapGestureRecognizer()
@@ -174,12 +175,13 @@ class EditProfileController: LBTAFormController,  UITextFieldDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .viewBackgroundColor
+        profileImageView.layer.borderWidth = 1
         navigationItem.title = "Account Settings"
         navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "checkmark"), style: .plain, target: self, action: #selector(saveChanges))
-        navigationItem.rightBarButtonItem?.tintColor  = .black
+        navigationItem.rightBarButtonItem?.tintColor  = .iconColor
         navigationItem.leftBarButtonItem = .init(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(handleBack))
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationItem.leftBarButtonItem?.tintColor = .iconColor
 
         gestureRecognizer.addTarget(self, action: #selector(bioLabelChannge))
         gestureRecognizer.addTarget(self, action: #selector(namelabelChange))
@@ -193,11 +195,11 @@ class EditProfileController: LBTAFormController,  UITextFieldDelegate, UIImagePi
         fullNameTextField.delegate = self
         
         lineView.translatesAutoresizingMaskIntoConstraints = false
-        lineView.backgroundColor = .black
+        lineView.backgroundColor = .labelsColor
         lineView2.translatesAutoresizingMaskIntoConstraints = false
-        lineView2.backgroundColor = .gray
+        lineView2.backgroundColor = .labelsColor
         lineView3.translatesAutoresizingMaskIntoConstraints = false
-        lineView3.backgroundColor = .gray
+        lineView3.backgroundColor = .labelsColor
         
         profileImageView.layer.cornerRadius = 40
         profileImageView.layer.borderWidth = 1
@@ -209,10 +211,10 @@ class EditProfileController: LBTAFormController,  UITextFieldDelegate, UIImagePi
                                         changePhotoButton, spacing: 10, alignment: .center).padBottom(20).padTop(30),
                         stackView.stack(nameLabel,
                                         fullNameTextField.withSize(.init(width: view.frame.width - 24, height: 35)),
-                                        lineView.withSize(.init(width: view.frame.width - 24, height: 0.5))),
+                                        lineView.withSize(.init(width: view.frame.width - 24, height: 0.45))),
                         stackView.stack(bioLabel,
                                         bioTextField.withSize(.init(width: view.frame.width - 24, height: 35)),
-                                        lineView2.withSize(.init(width: view.frame.width - 24, height: 0.5))),
+                                        lineView2.withSize(.init(width: view.frame.width - 24, height: 0.48))),
                         spacing: 16,
                         alignment: .center).withMargins(.allSides(12))
      

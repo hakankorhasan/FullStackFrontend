@@ -15,11 +15,11 @@ class CreatePostController: UIViewController, UITextViewDelegate {
     
     let imageView = UIImageView(image: nil, contentMode: .scaleAspectFit)
     
-    let postButton = UIButton(title: "Post", titleColor: .white, font: .systemFont(ofSize: 24), backgroundColor: .black, target: self, action: #selector(handlePost))
+    let postButton = UIButton(title: "Post", titleColor: .white, font: .systemFont(ofSize: 24), backgroundColor: UIColor(#colorLiteral(red: 0.3004268408, green: 0.4430769682, blue: 0.8877891898, alpha: 1)), target: self, action: #selector(handlePost))
     
     let placeholderLabel = UILabel(text: " Enter your post body text...", font: .systemFont(ofSize: 14), textColor: .lightGray)
     
-    let postBodyTextView = UITextView(text: nil, font: .systemFont(ofSize: 14))
+    let postBodyTextView = UITextView(text: nil, font: .systemFont(ofSize: 14), textColor: .labelsColor)
     
     weak var homeController: HomeController?
     
@@ -35,7 +35,7 @@ class CreatePostController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .init(white: 0.95, alpha: 1)
+        view.backgroundColor = .viewBackgroundColor
         modalPresentationStyle = .fullScreen
         postButton.layer.cornerRadius = 10
         

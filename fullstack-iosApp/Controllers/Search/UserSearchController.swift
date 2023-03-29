@@ -7,16 +7,40 @@
 
 import LBTATools
 
+
+extension UserSearchController: SearchDelegate {
+    
+    func userProfileGo(user: User) {
+        print("selam")
+        let currentUrl = user.id
+        let userProfile = ProfileController(userId: currentUrl == self.user?.id ? "" : currentUrl)
+        navigationController?.pushViewController(userProfile, animated: true)
+    }
+    
+}
+
 class UserSearchController: LBTAListController<UserSearchCell, User>, UISearchResultsUpdating {
     
     
     let searchBarController = UISearchController()
     
+    let userId: String
+    var user: User?
+    
+    init(userId: String) {
+        self.userId = userId
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .init(white: 0.95, alpha: 1)
         navigationItem.title = "Search"
         modalPresentationStyle = .fullScreen
+        view.backgroundColor = .viewBackgroundColor
         
         searchBarController.searchResultsUpdater = self
         navigationItem.searchController = searchBarController

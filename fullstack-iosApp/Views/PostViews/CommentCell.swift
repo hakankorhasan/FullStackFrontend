@@ -12,11 +12,11 @@ class CommentCell: LBTAListCell<Comment> {
     
     let profileImageView = CircularImageView(width: 44, image: UIImage(systemName: "person"))
     
-    let usernameLabel = UILabel(text: "temp", font: .boldSystemFont(ofSize: 15))
+    let usernameLabel = UILabel(text: "temp", font: .boldSystemFont(ofSize: 15), textColor: .labelsColor)
     
     let fromNowLabel = UILabel(text: "posted 5m ago", font: .systemFont(ofSize: 12, weight: .regular), textColor: .gray)
     
-    let commentLabel = UILabel(text: "greatfull", font: .systemFont(ofSize: 15, weight: .semibold), textColor: .black ,textAlignment: .justified, numberOfLines: 0)
+    let commentLabel = UILabel(text: "greatfull", font: .systemFont(ofSize: 15, weight: .semibold), textColor: .labelsColor ,textAlignment: .justified, numberOfLines: 0)
     
     
     override var item: Comment! {
@@ -30,7 +30,7 @@ class CommentCell: LBTAListCell<Comment> {
     
     override func setupViews() {
         super.setupViews()
-        
+        backgroundColor = .viewBackgroundColor
         stack(hstack(profileImageView,
               stack(usernameLabel,
               fromNowLabel,

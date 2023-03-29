@@ -21,6 +21,7 @@
 		7F62BC2629B9D3B400D07C1C /* 121421-login.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC2529B9D3B400D07C1C /* 121421-login.json */; };
 		7F62BC2A29BA258200D07C1C /* 41647-successfully-completed.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F62BC2929BA258200D07C1C /* 41647-successfully-completed.json */; };
 		7F64F05129CB37AF004F7E26 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64F05029CB37AF004F7E26 /* TabBarView.swift */; };
+		7F64F05929CF37D9004F7E26 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64F05829CF37D9004F7E26 /* Color.swift */; };
 		7F7BC75429B0D97400D03BDE /* CustomInputMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BC75329B0D97400D03BDE /* CustomInputMessageView.swift */; };
 		7F801596297E77D500936EDC /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801595297E77D500936EDC /* PostCell.swift */; };
 		7FB06AA929A28F85001CBC67 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB06AA829A28F85001CBC67 /* PostDetailController.swift */; };
@@ -72,6 +73,7 @@
 		7F62BC2529B9D3B400D07C1C /* 121421-login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "121421-login.json"; sourceTree = "<group>"; };
 		7F62BC2929BA258200D07C1C /* 41647-successfully-completed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "41647-successfully-completed.json"; sourceTree = "<group>"; };
 		7F64F05029CB37AF004F7E26 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		7F64F05829CF37D9004F7E26 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F7BC75329B0D97400D03BDE /* CustomInputMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputMessageView.swift; sourceTree = "<group>"; };
 		7F801595297E77D500936EDC /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		7FB06AA829A28F85001CBC67 /* PostDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				7FB06AB829A90387001CBC67 /* Refresh.swift */,
 				7FF6383C29BB26B8001290ED /* IsLogginControl.swift */,
+				7F64F05829CF37D9004F7E26 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				7FE581A229B5D32F00CCBA88 /* SocketIOManager.swift in Sources */,
 				7FB06ABC29ABA474001CBC67 /* AddMessageController.swift in Sources */,
 				7F2195062987A4B600D25BAD /* ProfileHeader.swift in Sources */,
+				7F64F05929CF37D9004F7E26 /* Color.swift in Sources */,
 				7F64F05129CB37AF004F7E26 /* TabBarView.swift in Sources */,
 				7FBBC301297996B900A978F0 /* RegisterController.swift in Sources */,
 				7F2195082988FC0A00D25BAD /* MainTabBarController.swift in Sources */,

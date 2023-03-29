@@ -15,12 +15,12 @@ protocol PostCellOptionsDelegate: class {
 
 class PostCell: UITableViewCell {
     
-    let usernameLabel = UILabel(text: "Username", font: .boldSystemFont(ofSize: 15))
+    let usernameLabel = UILabel(text: "Username", font: .boldSystemFont(ofSize: 15), textColor: .labelsColor)
     let postImageView = UIImageView(image: nil, contentMode: .scaleAspectFill)
-    let postTextLabel = UILabel(text: "Post Text", font: .systemFont(ofSize: 15), numberOfLines: 0)
+    let postTextLabel = UILabel(text: "Post Text", font: .systemFont(ofSize: 15), textColor: .labelsColor, numberOfLines: 0)
     
     weak var delegate: PostCellOptionsDelegate?
-    lazy var optionsButton = UIButton(image: UIImage(systemName: "ellipsis")!,tintColor: .black, target: self, action: #selector(handleOptions))
+    lazy var optionsButton = UIButton(image: UIImage(systemName: "ellipsis")!, tintColor: .iconColor, target: self, action: #selector(handleOptions))
     
     @objc fileprivate func handleOptions() {
         
@@ -29,9 +29,9 @@ class PostCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-     
-        postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor).isActive = true
         
+        postImageView.heightAnchor.constraint(equalTo: postImageView.widthAnchor).isActive = true
+        backgroundColor = .viewBackgroundColor
         stack(hstack(usernameLabel,
                     UIView(),
                     optionsButton.withWidth(25))

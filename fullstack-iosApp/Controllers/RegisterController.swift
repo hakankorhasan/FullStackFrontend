@@ -13,22 +13,18 @@ import CoreData
 
 class RegisterController: LBTAFormController, UITextFieldDelegate {
     
-    
-    let logoImageView = UIImageView(image: #imageLiteral(resourceName: "sosyal-fon1"), contentMode: .scaleAspectFit)
-    
-    let logoLabel = UILabel(text: "FullStack iOS Application", font: .systemFont(ofSize: 26, weight: .heavy), textColor: .black, numberOfLines: 0)
-    
     let fullNameTextField = IndentedTextField(placeholder: "Full Name", padding: 24, cornerRadius: 25)
     
     let emailTextField = IndentedTextField(placeholder: "Email", padding: 24, cornerRadius: 25)
     
     let passwordTextField = IndentedTextField(placeholder: "Password", padding: 24, cornerRadius: 25)
     
-    lazy var registerButton = UIButton(title: "Register", titleColor: .white, font: .boldSystemFont(ofSize: 18), backgroundColor: .black, target: self, action: #selector(handleRegister))
+    
+    lazy var registerButton = UIButton(title: "Register", titleColor: .white, font: .boldSystemFont(ofSize: 18), backgroundColor: UIColor(#colorLiteral(red: 0.3004268408, green: 0.4430769682, blue: 0.8877891898, alpha: 1)), target: self, action: #selector(handleRegister))
     
     let errorLabel = UILabel(text: "Y", font: .systemFont(ofSize: 16), textColor: .red, textAlignment: .center, numberOfLines: 0)
     
-    lazy var goBackButton = UIButton(title: "Go back to login.", titleColor: .black, font: .systemFont(ofSize: 16), target: self, action: #selector(goToBackRegister))
+    lazy var goBackButton = UIButton(title: "<- Go back to login.", titleColor: .labelsColor, font: .systemFont(ofSize: 16), target: self, action: #selector(goToBackRegister))
     
     let animationSuccessfully = LottieAnimationView()
     
@@ -54,17 +50,20 @@ class RegisterController: LBTAFormController, UITextFieldDelegate {
         animationView.loopMode = .loop
         animationView.play()
         
-        view.backgroundColor = .init(white: 0.95, alpha: 1)
+        view.backgroundColor = .viewBackgroundColor
         modalPresentationStyle = .fullScreen
         registerButton.layer.cornerRadius = 25
+        
         passwordTextField.isSecureTextEntry = true
-        [fullNameTextField, emailTextField, passwordTextField].forEach{$0.backgroundColor = .white}
+        
+        [fullNameTextField, emailTextField, passwordTextField].forEach{$0.backgroundColor = .grayButtonsColor}
+        [fullNameTextField, emailTextField, passwordTextField].forEach{$0.layer.borderWidth = 0.05}
         navigationController?.navigationBar.isHidden = true
         errorLabel.isHidden = true
         
         let registerView = UIView()
         registerView.stack(
-            registerView.stack(registerView.hstack(animationView.withSize(.init(width: 125, height: 125))/*logoImageView.withSize(.init(width: 125, height: 125)), logoLabel.withWidth(160), spacing: 16, alignment: .center*/).padLeft(12).padRight(12).padTop(40).padBottom(40), alignment: .center),
+            registerView.stack(registerView.hstack(animationView.withSize(.init(width: 125, height: 125))).padLeft(12).padRight(12).padTop(40).padBottom(60), alignment: .center),
         UIView().withHeight(25),
         fullNameTextField.withHeight(50),
         emailTextField.withHeight(50),
@@ -73,7 +72,7 @@ class RegisterController: LBTAFormController, UITextFieldDelegate {
         errorLabel,
         goBackButton,
         UIView().withHeight(80),
-        spacing: 16).withMargins(.init(top: 48, left: 32, bottom: 0, right: 32))
+        spacing: 13).withMargins(.init(top: 48, left: 32, bottom: 0, right: 32))
         
         view.addSubview(animationSuccessfully)
         animationSuccessfully.centerInSuperview()

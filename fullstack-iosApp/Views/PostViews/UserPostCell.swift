@@ -20,18 +20,18 @@ class UserPostCell: LBTAListCell<Post> {
     
     let profileImageView = CircularImageView(width: 44, image: UIImage(systemName: "person"))
     
-    let usernameLabel = UILabel(text: "username", font: .boldSystemFont(ofSize: 15))
+    let usernameLabel = UILabel(text: "username", font: .boldSystemFont(ofSize: 15), textColor: .labelsColor)
     let postImageView = UIImageView(image: nil, contentMode: .scaleAspectFill)
-    let postTextLabel = UILabel(text: "text", font: .systemFont(ofSize: 15), numberOfLines: 0)
+    let postTextLabel = UILabel(text: "text", font: .systemFont(ofSize: 15), textColor: .labelsColor  ,numberOfLines: 0)
     
     lazy var likeButton = UIButton(image: UIImage(systemName: "suit.heart")!,
                                       tintColor: .black, action: #selector(handleLike))
     
-    lazy var commentButton = UIButton(image: UIImage(systemName: "text.bubble")!, tintColor: .black, action: #selector(handleComment))
+    lazy var commentButton = UIButton(image: UIImage(systemName: "text.bubble")!, tintColor: .iconColor, action: #selector(handleComment))
     
-    lazy var optionsButton = UIButton(image: UIImage(systemName: "ellipsis")!,tintColor: .black, target: self, action: #selector(handleOptions))
+    lazy var optionsButton = UIButton(image: UIImage(systemName: "ellipsis")!,tintColor: .labelsColor, target: self, action: #selector(handleOptions))
     
-    let likeCountsButton = UIButton(title: "0 likes", titleColor: .black, font: .boldSystemFont(ofSize: 14), target: self, action: #selector(handleShowLikes))
+    let likeCountsButton = UIButton(title: "0 likes", titleColor: .labelsColor, font: .boldSystemFont(ofSize: 14), target: self, action: #selector(handleShowLikes))
     
     let fromNowLabel = UILabel(text: "Posted 5d ago", textColor: .gray)
     
@@ -58,8 +58,6 @@ class UserPostCell: LBTAListCell<Post> {
         (parentController as? PostDelegate)?.userProfile(post: item)
     }
     
-    
-    
     override var item: Post! {
         didSet {
             usernameLabel.text = item.user.fullName
@@ -73,7 +71,7 @@ class UserPostCell: LBTAListCell<Post> {
                 likeButton.tintColor = .red
             } else {
                 likeButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
-                likeButton.tintColor = .black
+                likeButton.tintColor = .iconColor
             }
             
             
@@ -92,13 +90,14 @@ class UserPostCell: LBTAListCell<Post> {
     
     override func setupViews() {
         super.setupViews()
-        
+        backgroundColor = .viewBackgroundColor
         imageHeightAnchor = postImageView.heightAnchor.constraint(equalToConstant: 0)
         imageHeightAnchor.isActive = true
         
         //add to gesture
         let tapGs = UITapGestureRecognizer(target: self, action: #selector(goToUserPorfile))
         profileImageView.isUserInteractionEnabled = true
+        profileImageView.layer.borderWidth = 0.5
         profileImageView.addGestureRecognizer(tapGs)
         
         

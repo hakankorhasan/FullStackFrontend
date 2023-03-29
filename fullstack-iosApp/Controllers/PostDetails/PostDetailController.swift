@@ -19,7 +19,8 @@ class PostDetailController: LBTAListController<CommentCell, Comment> {
     }
     
     lazy var customInputView: CustomInputAccessoryView = {
-        let civ = CustomInputAccessoryView(frame: .init(x: 0, y: 0, width: view.frame.width, height: 50))
+        let civ = CustomInputAccessoryView(frame: .init(x: 0, y: 0, width: view.frame.width, height: 700))
+        civ.layer.cornerRadius = 15
         civ.sendButton.addTarget(self, action: #selector(handleSend), for: .touchUpInside)
         return civ
         
@@ -57,7 +58,7 @@ class PostDetailController: LBTAListController<CommentCell, Comment> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .viewBackgroundColor
         navigationItem.title = "Comments"
         collectionView.keyboardDismissMode = .interactive
         

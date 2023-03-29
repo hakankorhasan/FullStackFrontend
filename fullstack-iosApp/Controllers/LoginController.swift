@@ -13,28 +13,24 @@ import Lottie
 
 class LoginController: LBTAFormController {
     
-    let logoImageView = UIImageView(image: #imageLiteral(resourceName: "sosyal-fon1"), contentMode: .scaleAspectFit)
-    
-    let logoLabel = UILabel(text: "FullStack iOS Application", font: .systemFont(ofSize: 26, weight: .heavy), textColor: .black, numberOfLines: 0)
-    
+   
     let emailTextField = IndentedTextField(placeholder: "Email", padding: 24, cornerRadius: 25)
     
     let passwordTextField = IndentedTextField(placeholder: "Password", padding: 24, cornerRadius: 25)
     
-    lazy var loginButton = UIButton(title: "Login", titleColor: .white, font: .boldSystemFont(ofSize: 18), backgroundColor: .black, target: self, action: #selector(handleLogin))
-    
+    lazy var loginButton = UIButton(title: "Login", titleColor: .white, font: .boldSystemFont(ofSize: 18), backgroundColor: UIColor(#colorLiteral(red: 0.3004268408, green: 0.4430769682, blue: 0.8877891898, alpha: 1)), target: self, action: #selector(handleLogin))
+ 
     let errorLabel = UILabel(text: "Your login credentials were incorrect, please try again", font: .systemFont(ofSize: 14), textColor: .red, textAlignment: .center, numberOfLines: 0)
     
-    lazy var goToRegisterButton = UIButton(title: "Need an account? Go to register.", titleColor: .black, font: .systemFont(ofSize: 16), target: self, action: #selector(goToRegister))
+    lazy var goToRegisterButton = UIButton(title: "Need an account? Go to register.", titleColor: .labelsColor, font: .systemFont(ofSize: 16), target: self, action: #selector(goToRegister))
+    
+   
     
     @objc fileprivate func goToRegister() {
         let navController = UINavigationController(rootViewController: RegisterController())
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
     }
-    
-  
-
     
     @objc fileprivate func handleLogin() {
         
@@ -73,9 +69,7 @@ class LoginController: LBTAFormController {
                 let navController = MainTabBarController()
                 UIApplication.shared.refreshPosts()
                 self.navigationController?.pushViewController(navController, animated: true)
-                /*if let window = UIApplication.shared.windows.first {
-                    window.rootViewController = navController
-                }*/
+            
 
             }
         }
@@ -91,25 +85,31 @@ class LoginController: LBTAFormController {
         animationView.animation = LottieAnimation.named("121421-login")
         //animationView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         animationView.center = self.view.center
+        animationView.tintColor = .red
         animationView.transform = CGAffineTransform(scaleX: 4.0, y: 4.0) // boyutu değiştirildi
         animationView.loopMode = .loop
-        
+    
         
         animationView.play()
         
-        view.backgroundColor = .init(white: 0.95, alpha: 1)
+        view.backgroundColor = .viewBackgroundColor
         modalPresentationStyle = .fullScreen
+        
         emailTextField.autocapitalizationType = .none
-        emailTextField.backgroundColor = .white
-        passwordTextField.backgroundColor = .white
+        emailTextField.backgroundColor = .grayButtonsColor
+        emailTextField.layer.borderWidth = 0.05
+        
+        passwordTextField.backgroundColor = .grayButtonsColor
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.layer.borderWidth = 0.05
+        
         loginButton.layer.cornerRadius = 25
         navigationController?.navigationBar.isHidden = true
         errorLabel.isHidden = true
         
         let loginView = UIView()
         loginView.stack(
-            loginView.stack(loginView.hstack(animationView.withSize(.init(width: 125, height: 125))).padLeft(12).padRight(12).padTop(46).padBottom(36), alignment: .center),
+            loginView.stack(loginView.hstack(animationView.withSize(.init(width: 125, height: 125))).padLeft(12).padRight(12).padTop(46).padBottom(60), alignment: .center),
             UIView().withHeight(12),
             emailTextField.withHeight(50),
             passwordTextField.withHeight(50),
@@ -117,7 +117,7 @@ class LoginController: LBTAFormController {
             errorLabel,
             goToRegisterButton,
             UIView().withHeight(80),
-            spacing: 16).withMargins(.init(top: 48, left: 32, bottom: 0, right: 32))
+            spacing: 13).withMargins(.init(top: 48, left: 32, bottom: 0, right: 32))
         
         formContainerStackView.padBottom(-24)
         formContainerStackView.addArrangedSubview(loginView)

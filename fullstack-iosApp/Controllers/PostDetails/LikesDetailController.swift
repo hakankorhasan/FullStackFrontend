@@ -13,7 +13,7 @@ class LikesCell: LBTAListCell<Like> {
     
     let profileImageView = CircularImageView(width: 44, image: UIImage(systemName: "person"))
     
-    let fullNameLabel = UILabel(text: "fullname")
+    let fullNameLabel = UILabel(text: "fullname", textColor: .labelsColor)
     
     override func setupViews() {
         super.setupViews()

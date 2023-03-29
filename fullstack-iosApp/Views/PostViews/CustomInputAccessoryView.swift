@@ -11,7 +11,7 @@ class CustomInputAccessoryView: UIView {
     
     let textView = UITextView()
     
-    let sendButton = UIButton(title: "SEND", titleColor: .black, font: .boldSystemFont(ofSize: 15), target: nil, action: nil)
+    let sendButton = UIButton(title: "SEND", titleColor: .labelsColor, font: .boldSystemFont(ofSize: 15), backgroundColor: .grayButtonsColor, target: nil, action: nil)
     
     let placeholderText = UILabel(text: "Enter your comment", font: .systemFont(ofSize: 15, weight: .regular), textColor: .lightGray)
     
@@ -21,8 +21,8 @@ class CustomInputAccessoryView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
-        setupShadow(opacity: 0.5, radius: 8, offset: .init(width: 0, height: -8), color: .lightGray)
+        backgroundColor = .viewBackgroundColor
+        setupShadow(opacity: 0.5, radius: 8, offset: .init(width: 0, height: -4), color: .lightGray)
         
         autoresizingMask = .flexibleHeight
         textView.isScrollEnabled = false
@@ -30,8 +30,10 @@ class CustomInputAccessoryView: UIView {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleTextChange), name: UITextView.textDidChangeNotification, object: nil)
         
+        sendButton.layer.cornerRadius = 15
+        
         hstack(textView,
-               sendButton.withSize(.init(width: 60, height: 60)), alignment: .center).withMargins(.init(top: 0, left: 16, bottom: 0, right: 16))
+               sendButton.withSize(.init(width: 60, height: 45)), alignment: .center).withMargins(.init(top: 14, left: 16, bottom: 0, right: 16))
         
         addSubview(placeholderText)
         

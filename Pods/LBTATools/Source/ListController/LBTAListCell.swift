@@ -34,7 +34,7 @@ open class LBTAListCell<T>: UICollectionViewCell {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+       // backgroundColor = .white
         setupViews()
     }
     

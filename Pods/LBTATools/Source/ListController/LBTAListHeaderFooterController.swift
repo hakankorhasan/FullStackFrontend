@@ -48,7 +48,7 @@ open class LBTAListHeaderFooterController<T: LBTAListCell<U>, U, H: UICollection
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .white
+        //collectionView.backgroundColor = .white
         
         collectionView.register(T.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(H.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: supplementaryViewId)

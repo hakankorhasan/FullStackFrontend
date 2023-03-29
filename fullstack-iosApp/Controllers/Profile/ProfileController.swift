@@ -12,7 +12,19 @@ import SDWebImage
 import JGProgressHUD
 import CoreData
 
+extension ProfileController: SearchDelegate {
+    
+    func userProfileGo(user: User) {
+        print("selam")
+        let currentUrl = user.id
+        let userProfile = ProfileController(userId: currentUrl == user.id ? "" : currentUrl)
+        navigationController?.pushViewController(userProfile, animated: true)
+    }
+    
+}
+
 extension ProfileController: PostDelegate {
+   
     func userProfile(post: Post) {
         let currentUrl = post.user.id
         let userProfile = ProfileController(userId: currentUrl == user?.id ? "" : currentUrl)
@@ -133,6 +145,7 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
                     .response { response in
                         switch response.result {
                         case .success:
+                            NSManagedObject().setIsLogged(false)
                             let navController = UINavigationController(rootViewController: LoginController())
                             navController.modalPresentationStyle = .fullScreen
                             self.present(navController, animated: true)
@@ -148,9 +161,9 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
           
         }))
         
-        
         alertController.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertController, animated: true)
+        
     }
     
     func goToEdit() {
@@ -200,7 +213,7 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
     fileprivate let activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .whiteLarge)
         aiv.startAnimating()
-        aiv.color = .darkGray
+        aiv.color = .iconColor
         
         return aiv
     }()
@@ -208,12 +221,14 @@ class ProfileController: LBTAListHeaderController<UserPostCell, Post, ProfileHea
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .viewBackgroundColor
         fetchUserProfile()
         
-        navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(handleSetting))
+        if(userId.isEmpty) {
+            navigationItem.rightBarButtonItem = .init(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(handleSetting))
+            navigationItem.rightBarButtonItem?.tintColor = .iconColor
+        }
         
-        navigationItem.rightBarButtonItem?.tintColor = .black
         
         setupActivityIndicatorView()
         

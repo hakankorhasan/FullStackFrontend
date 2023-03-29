@@ -18,20 +18,20 @@ class ProfileHeader: UICollectionReusableView {
     
     let messageButton = UIButton(title: "Message", titleColor: .white, font: .boldSystemFont(ofSize: 13), backgroundColor: UIColor(cgColor: CGColor(gray: 0.15, alpha: 1)), target: self, action: #selector(handleMessageSend))
     
-    let editProfileButton = UIButton(title: "Edit Profile", titleColor: .white,font: .boldSystemFont(ofSize: 13), backgroundColor: UIColor(#colorLiteral(red: 1, green: 0.3475894928, blue: 0, alpha: 1)), target: self, action: #selector(handleEditProfile))
+    let editProfileButton = UIButton(title: "Edit Profile", titleColor: .white ,font: .boldSystemFont(ofSize: 13), backgroundColor: .editButtonsColor/*UIColor(#colorLiteral(red: 1, green: 0.3475894928, blue: 0, alpha: 1))*/, target: self, action: #selector(handleEditProfile))
     
-    let postCountLabel = UILabel(text: "12", font: .boldSystemFont(ofSize: 15), textColor: .black, textAlignment: .center)
+    let postCountLabel = UILabel(text: "12", font: .boldSystemFont(ofSize: 15), textColor: .labelsColor, textAlignment: .center)
     let postLabel = UILabel(text: "posts", font: .systemFont(ofSize: 13), textColor: .lightGray, textAlignment: .center)
     
-    let followersCountLabel = UILabel(text: "12", font: .boldSystemFont(ofSize: 13), textColor: .black, textAlignment: .center)
+    let followersCountLabel = UILabel(text: "12", font: .boldSystemFont(ofSize: 13), textColor: .labelsColor, textAlignment: .center)
     let followersLabel = UILabel(text: "followers", font: .systemFont(ofSize: 13),textColor: .lightGray, textAlignment: .center)
     
-    let followingCountLabel = UILabel(text: "12", font: .boldSystemFont(ofSize: 13), textColor: .black, textAlignment: .center)
+    let followingCountLabel = UILabel(text: "12", font: .boldSystemFont(ofSize: 13), textColor: .labelsColor, textAlignment: .center)
     let followingLabel = UILabel(text: "following", font: .systemFont(ofSize: 13), textColor: .lightGray, textAlignment: .center)
     
-    let fullNameLabel = UILabel(text: "full name", font: .boldSystemFont(ofSize: 13), textColor: .black, textAlignment: .center)
+    let fullNameLabel = UILabel(text: "full name", font: .boldSystemFont(ofSize: 13), textColor: .labelsColor, textAlignment: .center)
     
-    let bioLabel = UILabel(text: "", font: .systemFont(ofSize: 13), textColor: .darkGray, numberOfLines: 0)
+    let bioLabel = UILabel(text: "", font: .systemFont(ofSize: 13), textColor: .lightGray, numberOfLines: 0)
     
     @objc func handleSettings() {
         
@@ -84,8 +84,6 @@ class ProfileHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        profileImageView.isUserInteractionEnabled = true
-        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleEditProfile)))
         
         
         followButton.layer.cornerRadius = 6
@@ -119,7 +117,7 @@ class ProfileHeader: UICollectionReusableView {
         separatorView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, size: .init(width: 0, height: 0.5))
     }
     
-    let separatorView = UIView(backgroundColor: .init(white: 0.4, alpha: 0.3))
+    let separatorView = UIView(backgroundColor: .viewBackgroundColor)
     
     
     required init?(coder: NSCoder) {

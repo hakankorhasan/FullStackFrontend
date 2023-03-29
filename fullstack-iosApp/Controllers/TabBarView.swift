@@ -51,7 +51,7 @@ struct TabBarView: View {
                         //Text("home")
                             .tag("Home")
                     
-                    UIViewControllerWrapperView(controller: UserSearchController())
+                    UIViewControllerWrapperView(controller: UserSearchController(userId: ""))
                         //Text("search")
                             .tag("Search")
 

@@ -9,8 +9,8 @@ import LBTATools
 import Alamofire
 import SDWebImage
 
-protocol SearchDelegate{
-    func goUser(user: User)
+protocol SearchDelegate {
+    func userProfileGo(user: User)
 }
 
 extension UserSearchController {
@@ -39,31 +39,36 @@ extension UserSearchController {
     }
 }
 
-class UserSearchCell: LBTAListCell<User> {
-    
+class UserSearchCell: LBTAListCell<User>{
     
     // profil fotoğrafı eklenecek
-    
     let profileImageView = CircularImageView(width: 33, image: UIImage(systemName: "person"))
     
-    let nameLabel = UILabel(text: "Full Name", font: .systemFont(ofSize: 16, weight: .regular), textColor: .black)
+    let nameLabel = UILabel(text: "Full Name", font: .systemFont(ofSize: 16, weight: .regular), textColor: .labelsColor)
     
-    lazy var followButton = UIButton(title: "Follow", titleColor: .black, font: .boldSystemFont(ofSize: 14), backgroundColor: .white, target: self, action: #selector(handleFollow))
+    lazy var followButton = UIButton(title: "Follow", titleColor: .labelsColor, font: .boldSystemFont(ofSize: 14), backgroundColor: .viewBackgroundColor, target: self, action: #selector(handleFollow))
     
     @objc fileprivate func handleFollow() {
-        
         (parentController as? UserSearchController)?.didFollow(user: item)
-        
+    }
+    
+    @objc func goToUser(_ sender: UITapGestureRecognizer) {
+        print("tapped")
+        print(item.id)
+        (parentController as? SearchDelegate)?.userProfileGo(user: item)
     }
     
     override var item: User! {
         didSet {
+            
             profileImageView.sd_setImage(with: URL(string: item.profileImageUrl ?? ""))
             nameLabel.text = item.fullName
             
             if item.isFollowing == true {
                 followButton.backgroundColor = .black
                 followButton.setTitleColor(.white, for: .normal)
+                followButton.layer.borderColor = UIColor.white.cgColor
+                followButton.layer.borderWidth = 1
                 followButton.setTitle("Unfollow", for: .normal)
             } else {
                 followButton.backgroundColor = .white
@@ -77,11 +82,16 @@ class UserSearchCell: LBTAListCell<User> {
     
     override func setupViews() {
         super.setupViews()
-        
+        backgroundColor = .viewBackgroundColor
         followButton.layer.cornerRadius = 15
         followButton.layer.borderWidth = 1
         
+        let tapGs = UITapGestureRecognizer(target: self, action: #selector(goToUser))
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.layer.borderWidth = 0.5
+        profileImageView.addGestureRecognizer(tapGs)
         
+        profileImageView.layer.borderWidth = 1
         hstack(profileImageView, UIView().withWidth(12), nameLabel,
         UIView(),
                followButton.withWidth(100).withHeight(28), alignment: .center).padLeft(24).padRight(24)
